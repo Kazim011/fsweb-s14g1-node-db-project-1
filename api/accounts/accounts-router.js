@@ -72,7 +72,9 @@ router.delete("/:id", MDW.checkAccountId, async (req, res, next) => {
 router.use((err, req, res, next) => {
   // eslint-disable-line
   // KODLAR BURAYA
-  res.status(err.status || 500).json({ message: "Hata Oluştu.." });
+  res
+    .status(err.status || 500)
+    .json({ CustomMessage: "Hata Oluştu..", message: err.message });
 });
 
 module.exports = router;
